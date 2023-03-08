@@ -1,0 +1,40 @@
+<nav class="navbar bg-dark" data-bs-theme="dark">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1 text-white">Milton Duarte</span>
+  </div>
+</nav>
+<div class="container">
+  <h1 class="text-center mt-2">Lista de tareas</h1>
+
+  <div class="input-group mb-3">
+    <input
+      [(ngModel)]="tareaNueva"
+      type="text"
+      class="form-control"
+      placeholder="Ingrese tarea"
+      aria-label="Recipient's username"
+      aria-describedby="button-addon2"
+    />
+    <button
+      type="button"
+      class="btn btn-success"
+      type="button"
+      (click)="agregarTarea()"
+    >
+      Agregar
+    </button>
+  </div>
+
+  <ul class="list-group">
+    <li
+      *ngFor="let tarea of tareas; let i = index"
+      class="list-group-item d-flex justify-content-between mt-3"
+    >
+      <input class="form-check-input" type="checkbox" />
+      <span> {{ tarea }}</span>
+      <button type="button" class="btn btn-danger" (click)="eliminarTarea(i)">
+        Eliminar
+      </button>
+    </li>
+  </ul>
+</div>
